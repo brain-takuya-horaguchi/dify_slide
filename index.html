@@ -1,0 +1,2232 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dify - 生成AIアプリ開発プラットフォーム総合解説</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: #f0f4f8;
+        }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+            color: white;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+        }
+        .gradient-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at bottom right, rgba(255, 255, 255, 0.1) 0%, rgba(0, 0, 0, 0) 60%);
+        }
+        .title {
+            font-size: 4.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        .subtitle {
+            font-size: 2rem;
+            font-weight: 400;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        .content-area {
+            z-index: 10;
+            padding: 0 10%;
+        }
+        .decorative-element {
+            position: absolute;
+            bottom: -100px;
+            left: -100px;
+            width: 500px;
+            height: 500px;
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+            z-index: 1;
+        }
+        .decorative-element2 {
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 300px;
+            height: 300px;
+            background-color: rgba(255, 255, 255, 0.03);
+            border-radius: 50%;
+            z-index: 1;
+        }
+        .icon-grid {
+            display: flex;
+            justify-content: center;
+            margin-top: 2rem;
+            gap: 20px;
+        }
+        .icon-item {
+            display: flex;
+            align-items: center;
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 10px 15px;
+            border-radius: 8px;
+            margin: 5px;
+        }
+        .icon-item i {
+            margin-right: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="gradient-overlay"></div>
+        <div class="decorative-element"></div>
+        <div class="decorative-element2"></div>
+        
+        <div class="content-area text-center">
+            <h1 class="title">Dify</h1>
+            <h2 class="subtitle">生成AIアプリ開発プラットフォーム総合解説</h2>
+            
+            <p class="text-xl opacity-90 mb-6">
+                プログラミング不要で誰でも簡単に<br>
+                高度な生成AIアプリケーションを構築できる次世代ツール
+            </p>
+            
+            <div class="icon-grid flex flex-wrap justify-center">
+                <div class="icon-item">
+                    <i class="fas fa-robot text-xl"></i>
+                    <span>AIチャットボット</span>
+                </div>
+                <div class="icon-item">
+                    <i class="fas fa-cogs text-xl"></i>
+                    <span>AIエージェント</span>
+                </div>
+                <div class="icon-item">
+                    <i class="fas fa-project-diagram text-xl"></i>
+                    <span>AIワークフロー</span>
+                </div>
+                <div class="icon-item">
+                    <i class="fas fa-database text-xl"></i>
+                    <span>RAGエンジン</span>
+                </div>
+            </div>
+            
+            <p class="mt-10 text-sm opacity-70">
+                2025年最新版ガイド
+            </p>
+        </div>
+    </div>
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dify - 生成AIアプリ開発プラットフォーム総合解説</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: #f0f4f8;
+        }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            margin: 0 auto;
+            background: white;
+            color: #333;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+        .header {
+            background: linear-gradient(90deg, #2563eb 0%, #3b82f6 100%);
+            padding: 1.5rem 3rem;
+            color: white;
+        }
+        .content {
+            flex: 1;
+            padding: 2rem 3rem;
+            display: flex;
+            position: relative;
+            z-index: 10;
+        }
+        .definition-box {
+            background-color: rgba(59, 130, 246, 0.05);
+            border-left: 4px solid #3b82f6;
+            padding: 1.5rem;
+            border-radius: 0 8px 8px 0;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            background-color: #f8fafc;
+            padding: 1.2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+        .feature-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .feature-icon {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #3b82f6;
+            color: white;
+            border-radius: 8px;
+            margin-right: 1rem;
+            flex-shrink: 0;
+        }
+        .decorative-circle {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.05;
+            background-color: #3b82f6;
+            z-index: 1;
+        }
+        .circle-1 {
+            width: 300px;
+            height: 300px;
+            right: -100px;
+            bottom: -100px;
+        }
+        .circle-2 {
+            width: 200px;
+            height: 200px;
+            left: -50px;
+            top: 50%;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="decorative-circle circle-1"></div>
+        <div class="decorative-circle circle-2"></div>
+        
+        <div class="header">
+            <h1 class="text-3xl font-bold">Difyとは</h1>
+        </div>
+        
+        <div class="content">
+            <div class="w-full">
+                <div class="definition-box">
+                    <p class="text-xl font-medium">
+                        <span class="font-bold text-blue-600">Dify</span>は、<span class="font-bold">オープンソースのLLMアプリ開発プラットフォーム</span>です。Define（定義）とModify（改良）を組み合わせた名前で、AIアプリケーション開発と運用を簡素化します。
+                    </p>
+                </div>
+                
+                <div class="text-lg mb-4">
+                    プログラミングの専門知識がなくても、直感的なインターフェースを使って高度な生成AIアプリを簡単に構築できます。
+                </div>
+                
+                <div class="feature-grid">
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-code-branch"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-blue-700 mb-1">ノーコード開発</h3>
+                            <p>ドラッグ＆ドロップの直感的なインターフェースでAIアプリを構築</p>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-blue-700 mb-1">複数のAIモデル対応</h3>
+                            <p>GPT-4o、Gemini、Claude、Llama3など多数のAIモデルをサポート</p>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-blue-700 mb-1">RAGエンジン搭載</h3>
+                            <p>独自のナレッジベースを活用した高精度な回答生成が可能</p>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-lock"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-blue-700 mb-1">セキュリティ対応</h3>
+                            <p>オープンソースでローカル環境にインストール可能、機密データも安全</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-6 text-center text-gray-500">
+                    <p>「Do it for you（あなたのためにやる）」という意味も込められています</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dify - 生成AIアプリ開発プラットフォーム総合解説</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: #f0f4f8;
+        }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            margin: 0 auto;
+            background: white;
+            color: #333;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+        .header {
+            background: linear-gradient(90deg, #2563eb 0%, #3b82f6 100%);
+            padding: 1.5rem 3rem;
+            color: white;
+        }
+        .content {
+            flex: 1;
+            padding: 2rem 3rem;
+            position: relative;
+            z-index: 10;
+        }
+        .app-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        .app-card {
+            background-color: #f8fafc;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            height: 100%;
+        }
+        .app-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+        .app-icon {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+            color: white;
+            border-radius: 50%;
+            margin-bottom: 0.75rem;
+            font-size: 1.5rem;
+        }
+        .app-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #2563eb;
+            margin-bottom: 0.5rem;
+        }
+        .app-desc {
+            font-size: 0.92rem;
+            color: #4b5563;
+            flex-grow: 1;
+        }
+        .app-example {
+            margin-top: 0.75rem;
+            background-color: rgba(59, 130, 246, 0.05);
+            padding: 0.5rem 0.75rem;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            color: #4b5563;
+            width: 100%;
+        }
+        .intro-text {
+            max-width: 800px;
+            margin: 0 auto 1.5rem auto;
+            text-align: center;
+            color: #4b5563;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="header">
+            <h1 class="text-3xl font-bold">Difyで何が作れるか</h1>
+        </div>
+        <div class="intro-text">
+            <p class="text-lg "><br>Difyでは主に4つのタイプのAIアプリケーションを直感的なインターフェースで構築できます。<br>それぞれの特徴と具体的な活用例を見てみましょう。</p>
+        </div>
+        <div class="content">
+            <div class="app-grid">
+                <div class="app-card">
+                    <div class="app-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3 class="app-title">チャットボット</h3>
+                    <p class="app-desc">社内文書や専門知識をベースに質問応答するインテリジェントなチャットボットを構築できます。RAGエンジンを活用して専門的かつ正確な回答が可能です。</p>
+                    <div class="app-example">
+                        <strong>例：</strong> 社内FAQボット、製品サポートアシスタント、カスタマーサービスチャット
+                    </div>
+                </div>
+                
+                <div class="app-card">
+                    <div class="app-icon">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <h3 class="app-title">テキスト生成</h3>
+                    <p class="app-desc">プロンプトに基づいて記事、レポート、メールなどを自動生成するアプリを構築できます。特定のフォーマットやスタイルに合わせた文章作成が可能です。</p>
+                    <div class="app-example">
+                        <strong>例：</strong> 商品説明文生成、議事録作成ツール、マーケティングコピー作成支援
+                    </div>
+                </div>
+                
+                <div class="app-card">
+                    <div class="app-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3 class="app-title">AIエージェント</h3>
+                    <p class="app-desc">複雑なタスクを自律的に実行するエージェントを構築。目標設定と実現に必要なタスクを自動分解し、ツールを呼び出して完了させます。</p>
+                    <div class="app-example">
+                        <strong>例：</strong> リサーチアシスタント、データ分析エージェント、意思決定支援ツール
+                    </div>
+                </div>
+                
+                <div class="app-card">
+                    <div class="app-icon">
+                        <i class="fas fa-project-diagram"></i>
+                    </div>
+                    <h3 class="app-title">AIワークフロー</h3>
+                    <p class="app-desc">複数のAI処理を連携させた複雑なワークフローを視覚的に構築。タスクを細分化してLLMのパフォーマンスを最大化します。</p>
+                    <div class="app-example">
+                        <strong>例：</strong> 自動翻訳システム、メール処理自動化、文書要約と分析パイプライン
+                    </div>
+                </div>
+                
+                <div class="app-card">
+                    <div class="app-icon">
+                        <i class="fas fa-image"></i>
+                    </div>
+                    <h3 class="app-title">画像生成アプリ</h3>
+                    <p class="app-desc">テキストプロンプトから画像を生成するアプリケーションを構築。DALL-E、Stable Diffusionなど主要な画像生成AIと連携可能です。</p>
+                    <div class="app-example">
+                        <strong>例：</strong> 商品画像作成、デザイン補助ツール、広告バナー生成アプリ
+                    </div>
+                </div>
+                
+                <div class="app-card">
+                    <div class="app-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3 class="app-title">知識検索・RAGシステム</h3>
+                    <p class="app-desc">独自のナレッジベースに対する高度な検索と質問応答システムを構築。PDFや文書から知識を抽出し、より正確な回答を提供します。</p>
+                    <div class="app-example">
+                        <strong>例：</strong> 法律文書検索、社内ナレッジベース、論文検索・要約ツール
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dify - 生成AIアプリ開発プラットフォーム総合解説</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: #f0f4f8;
+        }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            margin: 0 auto;
+            background: white;
+            color: #333;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+        .header {
+            background: linear-gradient(90deg, #2563eb 0%, #3b82f6 100%);
+            padding: 1.25rem 3rem;
+            color: white;
+        }
+        .content {
+            flex: 1;
+            padding: 1.5rem 3rem;
+            position: relative;
+            z-index: 10;
+        }
+        .step-container {
+            display: flex;
+            padding-left: 0.75rem;
+            margin-top: 0.75rem;
+            position: relative;
+        }
+        .step-number {
+            position: relative;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-right: 1.5rem;
+            z-index: 2;
+            flex-shrink: 0;
+        }
+        .step-content {
+            flex: 1;
+            padding-bottom: 1rem;
+        }
+        .step-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #2563eb;
+            margin-bottom: 0.35rem;
+        }
+        .step-desc {
+            font-size: 0.92rem;
+            color: #4b5563;
+            margin-bottom: 2.5rem;
+            margin-top: 1.0rem;
+        }
+        .step-tips {
+            background-color: rgba(59, 130, 246, 0.05);
+            border-left: 3px solid #3b82f6;
+            padding: 0.6rem;
+            border-radius: 0 8px 8px 0;
+            font-size: 0.85rem;
+            color: #4b5563;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="header">
+            <h1 class="text-3xl font-bold">Difyでのアプリ開発の流れ</h1>
+        </div>
+        <p class="text-lg mb-3"><br>　　　　Difyでは、直感的なインターフェースを使って簡単にAIアプリケーションを構築できます。以下は基本的な開発フローです。</p>
+        <div class="content">
+            <div class="relative">
+                <div class="step-container">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3 class="step-title">アカウント作成・モデル設定</h3>
+                        <p class="step-desc">Difyアカウントを作成し、使用する言語モデルを設定します。OpenAI、Anthropic、Llama、Geminiなど多数のモデルから選択可能です。</p>
+                        <div class="step-tips">
+                            <strong>ポイント:</strong> オープンソースモデルを使えばプライバシーを保ちつつ、コストを抑えられます。
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="step-container">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3 class="step-title">アプリタイプの選択</h3>
+                        <p class="step-desc">「チャットボット」「テキスト生成」「エージェント」「AIワークフロー」など目的に合わせたアプリタイプを選択します。テンプレートを利用すれば開発を加速できます。</p>
+                        <div class="step-tips">
+                            <strong>ポイント:</strong> テンプレート探索からビジネスニーズに近いものを選ぶと効率的です。日本語テンプレートも利用可能。
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="step-container">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3 class="step-title">ナレッジベースの設定（必要に応じて）</h3>
+                        <p class="step-desc">PDFやExcel、WebページなどのデータをインポートしてAIが参照できる知識ベースを構築。これによりRAG（検索拡張生成）機能を実装できます。</p>
+                        <div class="step-tips">
+                            <strong>ポイント:</strong> 文書にタグやラベルを付けることで、検索精度が向上します。会社の内部資料や専門知識を登録するとより価値が高まります。
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="step-container">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3 class="step-title">アプリの開発・カスタマイズ</h3>
+                        <p class="step-desc">ドラッグ＆ドロップで直感的にアプリを構築。プロンプトの調整、AIの振る舞いの設定、外部ツールとの連携などを行います。</p>
+                        <div class="step-tips">
+                            <strong>ポイント:</strong> 複雑な処理は細かなステップに分解すると、AIの精度が向上します。画像生成などの機能もツール連携で実装可能です。
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="step-container">
+                    <div class="step-number">5</div>
+                    <div class="step-content">
+                        <h3 class="step-title">テスト・デプロイ・公開</h3>
+                        <p class="step-desc">アプリをテストし問題がなければデプロイします。WebアプリとしてURL公開、APIとして利用、または外部サイトへの埋め込みなど、複数の公開方法に対応しています。</p>
+                        <div class="step-tips">
+                            <strong>ポイント:</strong> 利用状況やパフォーマンスをモニタリングし、継続的に改善することで精度が向上します。
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dify - 生成AIアプリ開発プラットフォーム総合解説</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: #f0f4f8;
+        }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            margin: 0 auto;
+            background: white;
+            color: #333;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+        .header {
+            background: linear-gradient(90deg, #2563eb 0%, #3b82f6 100%);
+            padding: 1.25rem 3rem;
+            color: white;
+        }
+        .content {
+            flex: 1;
+            padding: 1.25rem 3rem;
+            position: relative;
+            z-index: 10;
+        }
+        .workflow-diagram {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 1rem 0;
+        }
+        .workflow-row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 1rem;
+            width: 100%;
+        }
+        .workflow-step {
+            width: 190px;
+            padding: 0.8rem;
+            background-color: #f0f7ff;
+            border: 2px solid #3b82f6;
+            border-radius: 8px;
+            text-align: center;
+            position: relative;
+            margin: 0 1.2rem;
+        }
+        .workflow-arrow {
+            color: #3b82f6;
+            font-size: 1.5rem;
+            margin: 0 8px;
+        }
+        .workflow-icon {
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+            color: white;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            margin: 0 auto 0.5rem auto;
+        }
+        .example-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.2rem;
+            margin: 1.5rem;
+        }
+        .example-card {
+            background-color: #f8fafc;
+            border-radius: 10px;
+            padding: 1rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            margin: 0.5rem;
+        }
+        .example-icon {
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+            color: white;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            margin-bottom: 0.6rem;
+        }
+        .example-title {
+            font-weight: 700;
+            font-size: 1rem;
+            color: #2563eb;
+            margin-bottom: 0.4rem;
+        }
+        .vertical-arrow {
+            height: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #3b82f6;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="header">
+            <h1 class="text-3xl font-bold">Difyの高度なAIワークフロー機能</h1>
+        </div>
+        <p class="text-lg mb-2"><br>　　　Difyのワークフロー機能は、複雑なAI処理を視覚的に設計し、単一プロンプトでは実現が難しい高度なタスクも効率的に実行できます。</p>
+        <div class="content">
+            <div class="workflow-diagram">
+                <div class="workflow-row">
+                    <div class="workflow-step">
+                        <div class="workflow-icon">
+                            <i class="fas fa-file-import"></i>
+                        </div>
+                        <h3 class="font-bold text-blue-600 text-sm">入力処理</h3>
+                        <p class="text-xs">ユーザー入力やファイルデータの取得</p>
+                    </div>
+                    
+                    <div class="workflow-arrow">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                    
+                    <div class="workflow-step">
+                        <div class="workflow-icon">
+                            <i class="fas fa-filter"></i>
+                        </div>
+                        <h3 class="font-bold text-blue-600 text-sm">前処理・分類</h3>
+                        <p class="text-xs">データの整形や意図分類を実行</p>
+                    </div>
+                    
+                    <div class="workflow-arrow">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                    
+                    <div class="workflow-step">
+                        <div class="workflow-icon">
+                            <i class="fas fa-code-branch"></i>
+                        </div>
+                        <h3 class="font-bold text-blue-600 text-sm">条件分岐</h3>
+                        <p class="text-xs">入力内容に応じた処理の分岐</p>
+                    </div>
+                </div>
+                
+                <div class="vertical-arrow">
+                    <i class="fas fa-arrow-down"></i>
+                </div>
+                
+                <div class="workflow-row">
+                    <div class="workflow-step">
+                        <div class="workflow-icon">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <h3 class="font-bold text-blue-600 text-sm">AIモデル処理</h3>
+                        <p class="text-xs">LLMを用いた本体処理を実行</p>
+                    </div>
+                    
+                    <div class="workflow-arrow">
+                        <i class="fas fa-arrow-left"></i>
+                    </div>
+                    
+                    <div class="workflow-step">
+                        <div class="workflow-icon">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <h3 class="font-bold text-blue-600 text-sm">知識取得</h3>
+                        <p class="text-xs">RAGを用いた関連情報の検索</p>
+                    </div>
+                    
+                    <div class="workflow-arrow">
+                        <i class="fas fa-arrow-left"></i>
+                    </div>
+                    
+                    <div class="workflow-step">
+                        <div class="workflow-icon">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                        <h3 class="font-bold text-blue-600 text-sm">外部ツール連携</h3>
+                        <p class="text-xs">Google検索やAPI接続</p>
+                    </div>
+                </div>
+            </div>
+            </div>
+            <p class="text-center font-medium text-blue-600 mb-3 text-sm">ブロックを組み合わせることで、高度な生成AIワークフローをノーコードで実現</p>
+            <div class="mb-8">
+            <div class="example-grid">
+                <div class="example-card">
+                    <div class="example-icon">
+                        <i class="fas fa-language"></i>
+                    </div>
+                    <h4 class="example-title">議事録生成ワークフロー</h4>
+                    <p class="text-xs">音声文字起こしデータから不要部分を除去し、アジェンダ項目ごとに分類・要約して構造化された議事録を自動生成します。</p>
+                </div>
+                
+                <div class="example-card">
+                    <div class="example-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h4 class="example-title">メール処理自動化</h4>
+                    <p class="text-xs">受信メールの内容を分析し、質問・依頼・通知などに分類。質問には適切な回答を生成し、依頼は関連情報を添えて特定のチームに転送します。</p>
+                </div>
+                
+                <div class="example-card">
+                    <div class="example-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h4 class="example-title">リサーチアシスタント</h4>
+                    <p class="text-xs">検索エンジンから情報収集を行い、複数の情報源から得たデータを整理・要約。矛盾点を指摘しながら包括的なレポートを生成します。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dify - 生成AIアプリ開発プラットフォーム総合解説</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: #f0f4f8;
+        }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            margin: 0 auto;
+            background: white;
+            color: #333;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+        .header {
+            background: linear-gradient(90deg, #2563eb 0%, #3b82f6 100%);
+            padding: 1.25rem 3rem;
+            color: white;
+        }
+        .content {
+            flex: 1;
+            padding: 1.25rem 3rem;
+            position: relative;
+            z-index: 10;
+        }
+        .case-studies-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+        .case-study-card {
+            background-color: #f8fafc;
+            border-radius: 12px;
+            padding: 1.25rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        .case-study-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+        .case-study-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.75rem;
+        }
+        .company-logo {
+            width: 45px;
+            height: 45px;
+            background-color: #e5e7eb;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            margin-right: 0.9rem;
+            color: #3b82f6;
+        }
+        .company-name {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #2563eb;
+        }
+        .case-study-content {
+            flex: 1;
+            font-size: 0.9rem;
+        }
+        .result-box {
+            background-color: rgba(59, 130, 246, 0.05);
+            border-radius: 8px;
+            padding: 0.6rem;
+            margin-top: 0.75rem;
+            display: flex;
+            align-items: center;
+        }
+        .result-icon {
+            color: #2563eb;
+            font-size: 1.1rem;
+            margin-right: 0.6rem;
+        }
+        .industry-tag {
+            display: inline-block;
+            background-color: #dbeafe;
+            color: #2563eb;
+            padding: 0.25rem 0.6rem;
+            border-radius: 9999px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        .section-intro {
+            max-width: 800px;
+            margin: 0 auto 1rem auto;
+            text-align: center;
+            color: #4b5563;
+        }
+        .decorative-dots {
+            position: absolute;
+            bottom: 2rem;
+            left: 2rem;
+            width: 120px;
+            height: 120px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+            z-index: 1;
+            opacity: 0.1;
+        }
+        .dot {
+            width: 12px;
+            height: 12px;
+            background-color: #3b82f6;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="decorative-dots">
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+        </div>
+        
+        <div class="header">
+            <h1 class="text-3xl font-bold">Dify企業導入事例</h1>
+        </div>
+        <div class="section-intro">
+            <p class="text-lg"><br>実際のビジネス現場でDifyがどのように活用され、成果を上げているのかを見てみましょう。<br>様々な業界で導入され、その効率性と柔軟性が評価されています。</p>
+        </div>
+        <div class="content">
+            <div class="case-studies-grid">
+                <div class="case-study-card">
+                    <div class="case-study-header">
+                        <div class="company-logo">
+                            <i class="fas fa-utensils"></i>
+                        </div>
+                        <div>
+                            <div class="industry-tag">レストランレビュー</div>
+                            <h3 class="company-name">食べログ</h3>
+                        </div>
+                    </div>
+                    <div class="case-study-content">
+                        <p>AIを活用した記事作成支援システムを構築。食べログはDify Communityの立ち上げにも参画し、国内コミュニティの形成に貢献しています。社内でDifyを全社的に活用し、コンテンツ作成の効率化を実現しました。</p>
+                        <div class="result-box">
+                            <div class="result-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs font-medium text-gray-700">コンテンツ制作プロセスを効率化し、エディターの生産性を向上</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="case-study-card">
+                    <div class="case-study-header">
+                        <div class="company-logo">
+                            <i class="fas fa-plane"></i>
+                        </div>
+                        <div>
+                            <div class="industry-tag">旅行業</div>
+                            <h3 class="company-name">令和トラベル</h3>
+                        </div>
+                    </div>
+                    <div class="case-study-content">
+                        <p>旅行ガイド記事の制作にDifyを活用し、2ヶ月で400記事以上を作成。世界192カ国をカバーする旅行情報を提供できるようになり、NEWTアプリへの流入を増加させました。従来の方法では実現が困難だった規模の記事生成を実現。</p>
+                        <div class="result-box">
+                            <div class="result-icon">
+                                <i class="fas fa-percentage"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs font-medium text-gray-700">記事表示回数が90%増加し、アプリへの流入も大幅に向上</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="case-study-card">
+                    <div class="case-study-header">
+                        <div class="company-logo">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <div>
+                            <div class="industry-tag">自治体</div>
+                            <h3 class="company-name">東京都</h3>
+                        </div>
+                    </div>
+                    <div class="case-study-content">
+                        <p>東京都AI戦略会議にてDifyの活用を検討。機密性の高い情報を扱う際はLlama3などのローカルLLMと組み合わせることで、セキュリティを確保しつつAIアプリケーションを構築する計画。行政サービスの効率化とデジタル化を推進。</p>
+                        <div class="result-box">
+                            <div class="result-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs font-medium text-gray-700">機密性の高い行政データも安全に活用可能な環境を構築</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="case-study-card">
+                    <div class="case-study-header">
+                        <div class="company-logo">
+                            <i class="fas fa-print"></i>
+                        </div>
+                        <div>
+                            <div class="industry-tag">メーカー</div>
+                            <h3 class="company-name">リコー</h3>
+                        </div>
+                    </div>
+                    <div class="case-study-content">
+                        <p>リコーはLangGenius社と販売・構築パートナー契約を締結し、Difyのエンタープライズプラン販売を開始。社内でも実践的な取り組みを推進し、デジタルサービス事業の社員にDifyアカウントを配布。企業全体のデジタル変革を加速。</p>
+                        <div class="result-box">
+                            <div class="result-icon">
+                                <i class="fas fa-handshake"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs font-medium text-gray-700">社内実践による知見をもとに日本企業のAI活用を支援</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dify - 生成AIアプリ開発プラットフォーム総合解説</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: #f0f4f8;
+        }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            margin: 0 auto;
+            background: white;
+            color: #333;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+        .header {
+            background: linear-gradient(90deg, #2563eb 0%, #3b82f6 100%);
+            padding: 1.25rem 3rem;
+            color: white;
+        }
+        .content {
+            flex: 1;
+            padding: 1rem 3rem;
+            position: relative;
+            z-index: 10;
+        }
+        .workflow-steps {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.2rem;
+            margin-top: 0.75rem;
+        }
+        .step-card {
+            background-color: #f8fafc;
+            border-radius: 12px;
+            padding: 1rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .step-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+        .step-number {
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 0.9rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .step-title {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #2563eb;
+            margin-bottom: 0.4rem;
+            margin-left: 1.5rem;
+        }
+        .step-desc {
+            color: #4b5563;
+            font-size: 0.85rem;
+            margin-bottom: 0.6rem;
+        }
+        .step-tips {
+            background-color: rgba(59, 130, 246, 0.05);
+            border-left: 3px solid #3b82f6;
+            padding: 0.6rem;
+            border-radius: 0 8px 8px 0;
+            font-size: 0.8rem;
+            color: #4b5563;
+            margin-top: auto;
+        }
+        .workflow-diagram {
+            margin-top: 1rem;
+            margin-left: 11.0rem;
+            padding: 0.8rem;
+            background-color: rgba(59, 130, 246, 0.05);
+            border-radius: 12px;
+        }
+        .workflow-blocks {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+        }
+        .workflow-blocks::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 10%;
+            right: 10%;
+            height: 3px;
+            background: linear-gradient(90deg, #3b82f6, #60a5fa, #3b82f6);
+            z-index: 1;
+        }
+        .workflow-block {
+            width: 140px;
+            background-color: white;
+            border: 2px solid #3b82f6;
+            border-radius: 10px;
+            padding: 0.75rem;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .block-icon {
+            width: 35px;
+            height: 35px;
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            margin: 0 auto 0.4rem auto;
+        }
+        .block-title {
+            font-weight: 600;
+            font-size: 0.8rem;
+            color: #2563eb;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #2563eb;
+            margin: 0.75rem 0 0.5rem 0;
+        }
+        .output-preview {
+            margin-top: 0.75rem;
+            background-color: #f9fafb;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 0.75rem;
+            font-size: 0.8rem;
+            color: #4b5563;
+            font-family: 'Courier New', monospace;
+            height: 140px;
+            overflow-y: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="header">
+            <h1 class="text-3xl font-bold">AIワークフロー構築チュートリアル</h1>
+        </div>
+        <p class="text-lg mb-2"><br>　　　Difyを使って複雑なAIワークフローを構築し、議事録の自動生成や文書要約などの業務を効率化する方法を紹介します。</p>
+        <div class="step-card ml-10 mr-10 mb-5">
+            <div class="step-number ml-5 mt-4">1</div>
+            <h3 class="step-title">　アプリタイプの選択</h3>
+            <p class="step-desc">Difyダッシュボードから「スタジオ」→「最初から作成」→「ワークフロー」を選択します。アプリに名前と説明を設定し、作成をクリックします。</p>
+            <div class="step-tips">
+                <strong>ポイント:</strong> 「テンプレートから作成」を選ぶと、既存のワークフローテンプレートから始めることができます。
+            </div>
+        </div>
+        
+        <div class="step-card  ml-10 mr-10 mb-5">
+            <div class="step-number ml-5 mt-4">2</div>
+            <h3 class="step-title">　ワークフロー設計</h3>
+            <p class="step-desc">「開始」ノードから始まるワークフロー画面でドラッグ＆ドロップでブロックを配置します。「入力」で必要なデータを定義し、必要に応じて「文字起こしテキスト抽出」や「分類器」などを追加します。</p>
+            <div class="step-tips">
+                <strong>ポイント:</strong> 複雑な処理は小さなステップに分割すると、AIの精度が向上します。前処理→分類→専門処理のフローが効果的です。
+            </div>
+        </div>
+        
+        <div class="step-card ml-10 mr-10 mb-5">
+            <div class="step-number ml-5 mt-4">3</div>
+            <h3 class="step-title">　条件分岐の設定</h3>
+            <p class="step-desc">「分類器」ブロックを追加して、入力内容に応じた処理の分岐を設計します。例えば、アジェンダ数やドキュメントの種類に応じて異なる処理を行うことができます。</p>
+            <div class="step-tips">
+                <strong>ポイント:</strong> LLMブロックのプロンプト内に<code>{{前の処理の変数}}</code>を配置することで、前の処理結果を参照できます。
+            </div>
+        </div>
+        
+        <div class="step-card ml-10 mr-10 mb-5">
+            <div class="step-number ml-5 mt-4">4</div>
+            <h3 class="step-title">　出力形式の設定</h3>
+            <p class="step-desc">「終了」ブロックに接続して出力形式を設定します。議事録や要約など、最終的な出力がユーザーに表示されます。複数の出力フォーマットを用意することも可能です。</p>
+            <div class="step-tips">
+                <strong>ポイント:</strong> JSON形式での出力を指定すれば、後続システムとの連携がスムーズになります。
+            </div>
+        </div>
+            
+        <div class="mr-40">
+            <h3 class="section-title bt-15px pt-10px">議事録自動生成ワークフローの例</h3>
+            
+            <div class="workflow-diagram">
+                <div class="workflow-blocks">
+                    <div class="workflow-block mr-2">
+                        <div class="block-icon">
+                            <i class="fas fa-file-upload"></i>
+                        </div>
+                        <div class="block-title">文字起こし取得</div>
+                    </div>
+                    
+                    <div class="workflow-block mr-2">
+                        <div class="block-icon">
+                            <i class="fas fa-filter"></i>
+                        </div>
+                        <div class="block-title">ノイズ除去</div>
+                    </div>
+                    
+                    <div class="workflow-block mr-2">
+                        <div class="block-icon">
+                            <i class="fas fa-list-ol"></i>
+                        </div>
+                        <div class="block-title">アジェンダ分類</div>
+                    </div>
+                    
+                    <div class="workflow-block mr-2">
+                        <div class="block-icon">
+                            <i class="fas fa-file-alt"></i>
+                        </div>
+                        <div class="block-title">議事録作成</div>
+                    </div>
+                    
+                    <div class="workflow-block">
+                        <div class="block-icon">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <div class="block-title">出力・保存</div>
+                    </div>
+                </div>
+            
+            <div class="output-preview">
+                <p class="font-bold text-xs mb-1">【議事録サンプル出力】</p>
+                <p>会議名: マーケティング戦略会議<br>
+                日時: 2025年4月21日 10:00-11:30<br>
+                参加者: 佐藤、鈴木、田中、山本<br><br>
+                
+                <span class="font-bold">議題1: 前回の宣伝効果分析</span><br>
+                - SNS広告の反応が予想以上に高く、CTRが業界平均の2倍<br>
+                - YouTubeでの認知度向上が顕著、チャンネル登録者が25%増加<br>
+                - リターゲティング広告の予算を20%増加させることで決定<br><br>
+                
+                <span class="font-bold">議題2: 新商品ローンチ計画</span><br>
+                - 5月15日に新商品「DX-7」を正式発表<br>
+                - プレスリリースは山本が担当、4月末までに草案を作成<br>
+                - インフルエンサーマーケティングは佐藤が担当、10名のリストを作成済み</p>
+            </div>
+        </div>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dify - 生成AIアプリ開発プラットフォーム総合解説</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: #f0f4f8;
+        }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            margin: 0 auto;
+            background: white;
+            color: #333;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+        .header {
+            background: linear-gradient(90deg, #2563eb 0%, #3b82f6 100%);
+            padding: 1.25rem 3rem;
+            color: white;
+        }
+        .content {
+            flex: 1;
+            padding: 1rem 3rem;
+            position: relative;
+            z-index: 10;
+        }
+        .tutorial-steps {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-top: 0.75rem;
+        }
+        .step-card {
+            background-color: #f8fafc;
+            border-radius: 12px;
+            padding: 1rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .step-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+        .step-number {
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 0.9rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .step-title {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #2563eb;
+            margin-bottom: 0.4rem;
+            margin-left: 1.5rem;
+        }
+        .step-desc {
+            color: #4b5563;
+            font-size: 0.85rem;
+            margin-bottom: 0.6rem;
+        }
+        .step-tips {
+            background-color: rgba(59, 130, 246, 0.05);
+            border-left: 3px solid #3b82f6;
+            padding: 0.6rem;
+            border-radius: 0 8px 8px 0;
+            font-size: 0.8rem;
+            color: #4b5563;
+            margin-top: auto;
+        }
+        .preview-container {
+            margin-top: 1rem;
+            background-color: rgba(59, 130, 246, 0.05);
+            border-radius: 12px;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+        }
+        .code-snippet {
+            background-color: #1e293b;
+            color: #e2e8f0;
+            border-radius: 8px;
+            padding: 0.75rem;
+            font-family: 'Courier New', monospace;
+            font-size: 0.75rem;
+            overflow: auto;
+            width: 55%;
+            height: 180px;
+        }
+        .image-preview-content {
+            width: 42%;
+            display: flex;
+            flex-direction: column;
+        }
+        .image-prompt {
+            background-color: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 0.75rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            font-size: 0.85rem;
+            margin-bottom: 0.75rem;
+        }
+        .image-preview {
+            display: flex;
+            justify-content: center;
+            flex-grow: 1;
+        }
+        .image-frame {
+            width: 180px;
+            height: 180px;
+            background-color: #f3f4f6;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        .image-frame::after {
+            content: '生成画像が表示されます';
+            color: #9ca3af;
+            font-size: 0.8rem;
+            text-align: center;
+        }
+        .image-frame-icon {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 26px;
+            height: 26px;
+            background-color: rgba(59, 130, 246, 0.1);
+            color: #3b82f6;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #2563eb;
+            margin: 0.75rem 0 0.5rem 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="header">
+            <h1 class="text-3xl font-bold">画像生成AIアプリケーション構築チュートリアル</h1>
+        </div>
+        <p class="text-lg mb-2"><br>　　　DifyでStable DiffusionやDALL-Eを活用した画像生成アプリケーションを簡単に構築する方法を紹介します。</p>            
+            
+                <div class="step-card">
+                    <div class="step-number  ml-5 mt-4">1</div>
+                    <h3 class="step-title">　APIキーの設定</h3>
+                    <p class="step-desc">画像生成モデルのAPIキーを取得します。Stability AIのサイトから登録してDreamStudioのAPIキーを発行するか、OpenAIのAPIキーを使用します。取得したキーをDifyの「ツール」設定でセットアップします。</p>
+                    <div class="step-tips">
+                        <strong>ポイント:</strong> Stability AIはオープンソースモデルでカスタマイズ性が高く、DALL-Eは簡単に利用開始できます。
+                    </div>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number  ml-5 mt-4">2</div>
+                    <h3 class="step-title">　エージェントアプリの作成</h3>
+                    <p class="step-desc">「スタジオ」から「最初から作成」→「チャットフロー」を選択してアプリを作成します。画像生成と会話の両方ができるエージェントアプリが最適です。プロンプトの最適化のためLLMとの連携も設定します。</p>
+                    <div class="step-tips">
+                        <strong>ポイント:</strong> テンプレートから作成する場合は、「AI画像生成アシスタント」のテンプレートを活用すると効率的です。
+                    </div>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number ml-5 mt-4">3</div>
+                    <h3 class="step-title">　ツール連携の設定</h3>
+                    <p class="step-desc">LLMブロックの設定でツール連携を行います。「stability_text2image」や「DALL-E」ツールを追加し、システムプロンプトに画像生成ツールの呼び出し方法を記述します。</p>
+                    <div class="step-tips">
+                        <strong>ポイント:</strong> 「ツールを使用する場合はMarkdown形式で表示する」と指示すると、出力が美しく整形されます。
+                    </div>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number ml-5 mt-4">4</div>
+                    <h3 class="step-title">　デプロイと公開</h3>
+                    <p class="step-desc">設定が完了したらテストを行い、問題なければ「公開」ボタンからアプリをデプロイします。シングルページWebアプリとして公開したり、APIとして他のアプリケーションに組み込むことも可能です。</p>
+                    <div class="step-tips">
+                        <strong>ポイント:</strong> 公開前に様々なプロンプトでテストし、意図しない画像が生成されないようセーフガードを設けましょう。
+                    </div>
+                </div>
+            
+            <h3 class="section-title">プロンプト設定例</h3>
+            
+            <div class="preview-container">
+                <div class="code-snippet">
+                    <pre>あなたは画像生成のエキスパートです。ユーザーが画像生成を依頼したら、
+その内容を詳細に分析し、最適な画像生成プロンプトを作成してください。
+画像の生成には stability_text2image ツールを使用します。
+
+プロンプトを作成する際は、以下の点に注意してください：
+- 被写体の詳細な特徴を含める
+- 画像のスタイル（写真、イラスト、3Dレンダリングなど）を指定する
+- 色調や雰囲気も具体的に記述する
+- ネガティブプロンプトも適切に設定する
+
+画像生成には以下の形式でツールを呼び出してください：
+stability_text2image { "prompt": "生成したい画像の詳細な説明", "negative_prompt": "避けたい要素" }
+
+                </div>
+                
+                <div class="image-preview-content">
+                    <div class="image-prompt">
+                        <p class="font-medium text-gray-700 text-xs">ユーザー: <span class="text-gray-900">「夕暮れの桜並木を描いた美しい画像を作ってください」</span></p>
+                        <p class="font-medium text-gray-700 text-xs mt-1">アシスタント: <span class="text-gray-900">「夕暮れの桜並木の美しい画像を作成します。日本の春の風景ですね。何か特に希望するスタイルはありますか？」</span></p>
+                    </div>
+                    
+                    <div class="image-preview">
+                        <div class="image-frame">
+                            <div class="image-frame-icon">
+                                <i class="fas fa-image"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dify - 生成AIアプリ開発プラットフォーム総合解説</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: #f0f4f8;
+        }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            margin: 0 auto;
+            background: white;
+            color: #333;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+        .header {
+            background: linear-gradient(90deg, #2563eb 0%, #3b82f6 100%);
+            padding: 1.25rem 3rem;
+            color: white;
+        }
+        .content {
+            flex: 1;
+            padding: 1rem 3rem;
+            position: relative;
+            z-index: 10;
+        }
+        .practices-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.2rem;
+            margin-top: 1rem;
+        }
+        .practice-card {
+            background-color: #f8fafc;
+            border-radius: 12px;
+            padding: 1rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        .practice-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+        .practice-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.75rem;
+        }
+        .practice-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+            color: white;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            margin-right: 0.75rem;
+            flex-shrink: 0;
+        }
+        .practice-title {
+            font-weight: 700;
+            font-size: 1rem;
+            color: #2563eb;
+        }
+        .practice-content {
+            flex: 1;
+            font-size: 0.85rem;
+        }
+        .example-box {
+            background-color: rgba(59, 130, 246, 0.05);
+            border-radius: 8px;
+            padding: 0.6rem;
+            margin-top: 0.5rem;
+            font-size: 0.8rem;
+            color: #4b5563;
+        }
+        .do-dont-container {
+            display: flex;
+            gap: 1.2rem;
+            margin-top: 1.2rem;
+        }
+        .do-dont-box {
+            flex: 1;
+            border-radius: 10px;
+            padding: 1rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+        .do-box {
+            background-color: rgba(16, 185, 129, 0.05);
+            border-left: 4px solid #10b981;
+        }
+        .dont-box {
+            background-color: rgba(239, 68, 68, 0.05);
+            border-left: 4px solid #ef4444;
+        }
+        .do-dont-title {
+            font-weight: 700;
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+        }
+        .do-title {
+            color: #10b981;
+        }
+        .dont-title {
+            color: #ef4444;
+        }
+        .do-dont-title i {
+            margin-right: 0.5rem;
+        }
+        .do-dont-list {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        .do-dont-list li {
+            margin-bottom: 0.4rem;
+            padding-left: 1.2rem;
+            position: relative;
+            font-size: 0.8rem;
+        }
+        .do-dont-list li::before {
+            position: absolute;
+            left: 0;
+            top: 0.15rem;
+        }
+        .do-list li::before {
+            content: '✓';
+            color: #10b981;
+        }
+        .dont-list li::before {
+            content: '✗';
+            color: #ef4444;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="header">
+            <h1 class="text-3xl font-bold">Dify活用のベストプラクティス</h1>
+        </div>
+        <p class="text-lg mb-2"><br>　　　Difyを最大限に活用するための実践的なヒントとテクニックをご紹介します。効果的なアプリケーション構築と運用のポイントを押さえましょう。</p>
+        <div class="content">
+            <div class="practices-grid">
+                <div class="practice-card">
+                    <div class="practice-header">
+                        <div class="practice-icon">
+                            <i class="fas fa-comment-dots"></i>
+                        </div>
+                        <h3 class="practice-title">プロンプト設計の最適化</h3>
+                    </div>
+                    <div class="practice-content">
+                        <p>効果的なプロンプトは高品質なAI出力の鍵です。明確な指示、適切な例示、出力フォーマットの指定を心がけましょう。</p>
+                        <div class="example-box">
+                            <strong>例：</strong> 「情報を要約してください」ではなく「次の情報を3つの重要ポイントと、箇条書きの行動計画にまとめてください」と具体的に指示する
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="practice-card">
+                    <div class="practice-header">
+                        <div class="practice-icon">
+                            <i class="fas fa-sitemap"></i>
+                        </div>
+                        <h3 class="practice-title">複雑なタスクの分解</h3>
+                    </div>
+                    <div class="practice-content">
+                        <p>大規模で複雑なタスクは、より小さく管理しやすいステップに分解しましょう。ワークフロー機能を活用して段階的な処理を設計します。</p>
+                        <div class="example-box">
+                            <strong>例：</strong> 論文要約タスクを「文書解析」→「重要ポイント抽出」→「構造化要約」→「わかりやすい表現への変換」と分割する
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="practice-card">
+                    <div class="practice-header">
+                        <div class="practice-icon">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <h3 class="practice-title">ナレッジベースの最適化</h3>
+                    </div>
+                    <div class="practice-content">
+                        <p>RAGの性能を向上させるため、ナレッジベースのデータを適切に整理・構造化しましょう。タグ付けとメタデータ管理が重要です。</p>
+                        <div class="example-box">
+                            <strong>例：</strong> 社内文書を部門・カテゴリー・日付でタグ付けし、細かなチャンクに分割して検索精度を向上させる
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="practice-card">
+                    <div class="practice-header">
+                        <div class="practice-icon">
+                            <i class="fas fa-vial"></i>
+                        </div>
+                        <h3 class="practice-title">反復的なテストと改善</h3>
+                    </div>
+                    <div class="practice-content">
+                        <p>AIアプリケーションは一度作って終わりではなく、継続的な改善が必要です。実際のユーザーフィードバックをもとに調整を重ねましょう。</p>
+                        <div class="example-box">
+                            <strong>例：</strong> 対話ログを分析して、よくある質問や誤解を特定し、プロンプトやナレッジベースを強化する
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        <div class="do-dont-container ml-10 mb-10 mr-10">
+            <div class="do-dont-box do-box">
+                <h3 class="do-dont-title do-title">
+                    <i class="fas fa-check-circle"></i>Difyでやるべきこと
+                </h3>
+                <ul class="do-dont-list do-list">
+                    <li>ビジネス目標を明確にしてから開発を始める</li>
+                    <li>複数のLLMを比較テストして最適なモデルを選択する</li>
+                    <li>テンプレートを活用して開発を加速させる</li>
+                    <li>エンドユーザー向けにシンプルなUIを設計する</li>
+                    <li>セキュリティ要件に応じたモデル選択とデプロイ方法を選ぶ</li>
+                </ul>
+            </div>
+            <div class="do-dont-box dont-box">
+                <h3 class="do-dont-title dont-title">
+                    <i class="fas fa-times-circle"></i>Difyでやるべきでないこと
+                </h3>
+                <ul class="do-dont-list dont-list">
+                    <li>複雑なタスクを単一のプロンプトに詰め込みすぎる</li>
+                    <li>ナレッジベースに未整理の大量データを投入する</li>
+                    <li>セキュリティ検証なしに機密データを扱う</li>
+                    <li>ユーザーフィードバックの収集体制なしでリリースする</li>
+                    <li>AIモデルの限界を理解せずに過度な期待を設定する</li>
+                </ul>
+            </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dify - 生成AIアプリ開発プラットフォーム総合解説</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: #f0f4f8;
+        }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            margin: 0 auto;
+            background: white;
+            color: #333;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+        .header {
+            background: linear-gradient(90deg, #2563eb 0%, #3b82f6 100%);
+            padding: 1.25rem 3rem;
+            color: white;
+        }
+        .content {
+            flex: 1;
+            padding: 1rem 3rem;
+            position: relative;
+            z-index: 10;
+        }
+        .comparison-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin-top: 1rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            border-radius: 10px;
+            overflow: hidden;
+            font-size: 0.85rem;
+        }
+        .comparison-table th {
+            background-color: #3b82f6;
+            color: white;
+            padding: 0.75rem;
+            text-align: left;
+            font-weight: 600;
+        }
+        .comparison-table td {
+            padding: 0.6rem 0.75rem;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        .comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+        .comparison-table tr:nth-child(even) {
+            background-color: #f8fafc;
+        }
+        .comparison-table tr:nth-child(odd) {
+            background-color: #ffffff;
+        }
+        .feature-available {
+            color: #10b981;
+            display: flex;
+            align-items: center;
+            font-weight: 600;
+        }
+        .feature-limited {
+            color: #f59e0b;
+            display: flex;
+            align-items: center;
+            font-weight: 600;
+        }
+        .feature-unavailable {
+            color: #ef4444;
+            display: flex;
+            align-items: center;
+            font-weight: 600;
+        }
+        .feature-icon {
+            margin-right: 0.5rem;
+        }
+        .key-differences {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.2rem;
+            margin-top: 1rem;
+        }
+        .difference-card {
+            background-color: #f8fafc;
+            border-radius: 10px;
+            padding: 1rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        .difference-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
+        .difference-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            margin-bottom: 0.6rem;
+        }
+        .difference-title {
+            font-weight: 700;
+            font-size: 1rem;
+            color: #2563eb;
+            margin-bottom: 0.3rem;
+        }
+        .conclusion-box {
+            background-color: rgba(59, 130, 246, 0.05);
+            border-left: 4px solid #3b82f6;
+            padding: 0.8rem 1rem;
+            border-radius: 0 10px 10px 0;
+            margin-top: 1rem;
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="header">
+            <h1 class="text-3xl font-bold">Dify vs 競合プラットフォームの比較</h1>
+        </div>
+        <p class="text-lg mb-2"><br>　　　Difyと他の生成AIアプリ開発プラットフォームを比較し、それぞれの特徴と優位性を理解しましょう。</p>
+        <div class="content">
+            
+            
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th style="width: 25%">機能/特徴</th>
+                        <th style="width: 25%">Dify</th>
+                        <th style="width: 25%">LangChain</th>
+                        <th style="width: 25%">GPTs (OpenAI)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>ノーコード開発</td>
+                        <td>
+                            <div class="feature-available">
+                                <i class="fas fa-check-circle feature-icon"></i>
+                                完全対応
+                            </div>
+                        </td>
+                        <td>
+                            <div class="feature-unavailable">
+                                <i class="fas fa-times-circle feature-icon"></i>
+                                コード必須
+                            </div>
+                        </td>
+                        <td>
+                            <div class="feature-available">
+                                <i class="fas fa-check-circle feature-icon"></i>
+                                完全対応
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>複数AIモデル対応</td>
+                        <td>
+                            <div class="feature-available">
+                                <i class="fas fa-check-circle feature-icon"></i>
+                                数百のモデルに対応
+                            </div>
+                        </td>
+                        <td>
+                            <div class="feature-available">
+                                <i class="fas fa-check-circle feature-icon"></i>
+                                多数のモデルに対応
+                            </div>
+                        </td>
+                        <td>
+                            <div class="feature-limited">
+                                <i class="fas fa-exclamation-circle feature-icon"></i>
+                                OpenAIモデルのみ
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>RAG機能</td>
+                        <td>
+                            <div class="feature-available">
+                                <i class="fas fa-check-circle feature-icon"></i>
+                                組み込み済み
+                            </div>
+                        </td>
+                        <td>
+                            <div class="feature-available">
+                                <i class="fas fa-check-circle feature-icon"></i>
+                                実装可能
+                            </div>
+                        </td>
+                        <td>
+                            <div class="feature-limited">
+                                <i class="fas fa-exclamation-circle feature-icon"></i>
+                                ファイル添付のみ
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>複雑なワークフロー</td>
+                        <td>
+                            <div class="feature-available">
+                                <i class="fas fa-check-circle feature-icon"></i>
+                                視覚的設計可能
+                            </div>
+                        </td>
+                        <td>
+                            <div class="feature-available">
+                                <i class="fas fa-check-circle feature-icon"></i>
+                                コードで実装
+                            </div>
+                        </td>
+                        <td>
+                            <div class="feature-unavailable">
+                                <i class="fas fa-times-circle feature-icon"></i>
+                                非対応
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>画像生成連携</td>
+                        <td>
+                            <div class="feature-available">
+                                <i class="fas fa-check-circle feature-icon"></i>
+                                複数サービスと連携
+                            </div>
+                        </td>
+                        <td>
+                            <div class="feature-available">
+                                <i class="fas fa-check-circle feature-icon"></i>
+                                コードで実装可能
+                            </div>
+                        </td>
+                        <td>
+                            <div class="feature-limited">
+                                <i class="fas fa-exclamation-circle feature-icon"></i>
+                                DALL-Eのみ
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>オープンソース</td>
+                        <td>
+                            <div class="feature-available">
+                                <i class="fas fa-check-circle feature-icon"></i>
+                                完全対応
+                            </div>
+                        </td>
+                        <td>
+                            <div class="feature-available">
+                                <i class="fas fa-check-circle feature-icon"></i>
+                                完全対応
+                            </div>
+                        </td>
+                        <td>
+                            <div class="feature-unavailable">
+                                <i class="fas fa-times-circle feature-icon"></i>
+                                クローズド
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="flex align-items ml-10 mr-10">
+        <div class="difference-card mr-5 ml-5">
+            <div class="difference-icon">
+                <i class="fas fa-code-branch"></i>
+            </div>
+            <h3 class="difference-title">拡張性と柔軟性</h3>
+            <p class="text-xs">Difyはノーコードの直感的なUIと高度なカスタマイズ性を両立。専門知識のレベルに応じて段階的に機能を活用できます。</p>
+        </div>
+        
+        <div class="difference-card mr-5 ml-5">
+            <div class="difference-icon">
+                <i class="fas fa-user-shield"></i>
+            </div>
+            <h3 class="difference-title">セキュリティ対応</h3>
+            <p class="text-xs">オープンソースのDifyは自社環境に導入可能で、プライバシーに配慮した機密データ処理が実現できます。</p>
+        </div>
+        
+        <div class="difference-card mr-5 ml-5">
+            <div class="difference-icon">
+                <i class="fas fa-rocket"></i>
+            </div>
+            <h3 class="difference-title">導入スピード</h3>
+            <p class="text-xs">テンプレートと直感的UIにより、プログラミング知識がなくても10分程度でカスタムAIアプリを作成可能です。</p>
+        </div>
+        </div>
+
+    
+    <div class="conclusion-box mr-10 ml-10 mb-10 mt-10">
+        <p class="text-gray-700">
+            <span class="font-bold text-blue-600">選択のポイント：</span> 
+            プログラミングスキルのないビジネスユーザーや迅速な開発が必要な場合はDify、高度なカスタマイズが必要な開発者はLangChain、シンプルな単一目的のチャットボットならGPTsが適しています。
+        </p>
+    </div>
+    </div>
+</body>
+</html>
