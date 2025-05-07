@@ -127,7 +127,10 @@
                 2025年最新版ガイド
             </p>
         </div>
-    </div>
+        <div class="text-right pr-10 pb-10">
+            1
+        </div>
+        </div>
 </body>
 </html>
 
@@ -244,7 +247,7 @@
             <div class="w-full">
                 <div class="definition-box">
                     <p class="text-xl font-medium">
-                        <span class="font-bold text-blue-600">Dify</span>は、<span class="font-bold">オープンソースのLLMアプリ開発プラットフォーム</span>です。Define（定義）とModify（改良）を組み合わせた名前で、AIアプリケーション開発と運用を簡素化します。
+                        <span class="font-bold text-blue-600">Dify</span>は、<span class="font-bold">オープンソースのLLMアプリ開発プラットフォーム</span>です。Define（定義）とModify（改良）を組み合わせた名前で、<br>AIアプリケーション開発と運用を簡素化します。
                     </p>
                 </div>
                 
@@ -299,9 +302,13 @@
                 </div>
             </div>
         </div>
+        <div class="text-right pr-10 pb-10">
+            2
+        </div>
     </div>
 </body>
 </html>
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -479,6 +486,9 @@
                 </div>
             </div>
         </div>
+        <div class="text-right pr-10 pb-5">
+            3
+        </div>
     </div>
 </body>
 </html>
@@ -632,6 +642,9 @@
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="text-right pr-10 pb-5">
+            4
         </div>
     </div>
 </body>
@@ -867,257 +880,8 @@
                 </div>
             </div>
         </div>
-    </div>
-</body>
-</html>
-
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dify - 生成AIアプリ開発プラットフォーム総合解説</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css">
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Helvetica Neue', Arial, sans-serif;
-            background-color: #f0f4f8;
-        }
-        .slide-container {
-            width: 1280px;
-            min-height: 720px;
-            margin: 0 auto;
-            background: white;
-            color: #333;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            position: relative;
-            display: flex;
-            flex-direction: column;
-        }
-        .header {
-            background: linear-gradient(90deg, #2563eb 0%, #3b82f6 100%);
-            padding: 1.25rem 3rem;
-            color: white;
-        }
-        .content {
-            flex: 1;
-            padding: 1.25rem 3rem;
-            position: relative;
-            z-index: 10;
-        }
-        .case-studies-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1.5rem;
-            margin-top: 1rem;
-        }
-        .case-study-card {
-            background-color: #f8fafc;
-            border-radius: 12px;
-            padding: 1.25rem;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-            transition: all 0.3s ease;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-        }
-        .case-study-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-        }
-        .case-study-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 0.75rem;
-        }
-        .company-logo {
-            width: 45px;
-            height: 45px;
-            background-color: #e5e7eb;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.25rem;
-            margin-right: 0.9rem;
-            color: #3b82f6;
-        }
-        .company-name {
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: #2563eb;
-        }
-        .case-study-content {
-            flex: 1;
-            font-size: 0.9rem;
-        }
-        .result-box {
-            background-color: rgba(59, 130, 246, 0.05);
-            border-radius: 8px;
-            padding: 0.6rem;
-            margin-top: 0.75rem;
-            display: flex;
-            align-items: center;
-        }
-        .result-icon {
-            color: #2563eb;
-            font-size: 1.1rem;
-            margin-right: 0.6rem;
-        }
-        .industry-tag {
-            display: inline-block;
-            background-color: #dbeafe;
-            color: #2563eb;
-            padding: 0.25rem 0.6rem;
-            border-radius: 9999px;
-            font-size: 0.7rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-        .section-intro {
-            max-width: 800px;
-            margin: 0 auto 1rem auto;
-            text-align: center;
-            color: #4b5563;
-        }
-        .decorative-dots {
-            position: absolute;
-            bottom: 2rem;
-            left: 2rem;
-            width: 120px;
-            height: 120px;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 8px;
-            z-index: 1;
-            opacity: 0.1;
-        }
-        .dot {
-            width: 12px;
-            height: 12px;
-            background-color: #3b82f6;
-            border-radius: 50%;
-        }
-    </style>
-</head>
-<body>
-    <div class="slide-container">
-        <div class="decorative-dots">
-            <div class="dot"></div>
-            <div class="dot"></div>
-            <div class="dot"></div>
-            <div class="dot"></div>
-            <div class="dot"></div>
-            <div class="dot"></div>
-            <div class="dot"></div>
-            <div class="dot"></div>
-            <div class="dot"></div>
-        </div>
-        
-        <div class="header">
-            <h1 class="text-3xl font-bold">Dify企業導入事例</h1>
-        </div>
-        <div class="section-intro">
-            <p class="text-lg"><br>実際のビジネス現場でDifyがどのように活用され、成果を上げているのかを見てみましょう。<br>様々な業界で導入され、その効率性と柔軟性が評価されています。</p>
-        </div>
-        <div class="content">
-            <div class="case-studies-grid">
-                <div class="case-study-card">
-                    <div class="case-study-header">
-                        <div class="company-logo">
-                            <i class="fas fa-utensils"></i>
-                        </div>
-                        <div>
-                            <div class="industry-tag">レストランレビュー</div>
-                            <h3 class="company-name">食べログ</h3>
-                        </div>
-                    </div>
-                    <div class="case-study-content">
-                        <p>AIを活用した記事作成支援システムを構築。食べログはDify Communityの立ち上げにも参画し、国内コミュニティの形成に貢献しています。社内でDifyを全社的に活用し、コンテンツ作成の効率化を実現しました。</p>
-                        <div class="result-box">
-                            <div class="result-icon">
-                                <i class="fas fa-chart-line"></i>
-                            </div>
-                            <div>
-                                <p class="text-xs font-medium text-gray-700">コンテンツ制作プロセスを効率化し、エディターの生産性を向上</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="case-study-card">
-                    <div class="case-study-header">
-                        <div class="company-logo">
-                            <i class="fas fa-plane"></i>
-                        </div>
-                        <div>
-                            <div class="industry-tag">旅行業</div>
-                            <h3 class="company-name">令和トラベル</h3>
-                        </div>
-                    </div>
-                    <div class="case-study-content">
-                        <p>旅行ガイド記事の制作にDifyを活用し、2ヶ月で400記事以上を作成。世界192カ国をカバーする旅行情報を提供できるようになり、NEWTアプリへの流入を増加させました。従来の方法では実現が困難だった規模の記事生成を実現。</p>
-                        <div class="result-box">
-                            <div class="result-icon">
-                                <i class="fas fa-percentage"></i>
-                            </div>
-                            <div>
-                                <p class="text-xs font-medium text-gray-700">記事表示回数が90%増加し、アプリへの流入も大幅に向上</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="case-study-card">
-                    <div class="case-study-header">
-                        <div class="company-logo">
-                            <i class="fas fa-building"></i>
-                        </div>
-                        <div>
-                            <div class="industry-tag">自治体</div>
-                            <h3 class="company-name">東京都</h3>
-                        </div>
-                    </div>
-                    <div class="case-study-content">
-                        <p>東京都AI戦略会議にてDifyの活用を検討。機密性の高い情報を扱う際はLlama3などのローカルLLMと組み合わせることで、セキュリティを確保しつつAIアプリケーションを構築する計画。行政サービスの効率化とデジタル化を推進。</p>
-                        <div class="result-box">
-                            <div class="result-icon">
-                                <i class="fas fa-shield-alt"></i>
-                            </div>
-                            <div>
-                                <p class="text-xs font-medium text-gray-700">機密性の高い行政データも安全に活用可能な環境を構築</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="case-study-card">
-                    <div class="case-study-header">
-                        <div class="company-logo">
-                            <i class="fas fa-print"></i>
-                        </div>
-                        <div>
-                            <div class="industry-tag">メーカー</div>
-                            <h3 class="company-name">リコー</h3>
-                        </div>
-                    </div>
-                    <div class="case-study-content">
-                        <p>リコーはLangGenius社と販売・構築パートナー契約を締結し、Difyのエンタープライズプラン販売を開始。社内でも実践的な取り組みを推進し、デジタルサービス事業の社員にDifyアカウントを配布。企業全体のデジタル変革を加速。</p>
-                        <div class="result-box">
-                            <div class="result-icon">
-                                <i class="fas fa-handshake"></i>
-                            </div>
-                            <div>
-                                <p class="text-xs font-medium text-gray-700">社内実践による知見をもとに日本企業のAI活用を支援</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="text-right pr-10 pb-5">
+            5
         </div>
     </div>
 </body>
@@ -1392,6 +1156,10 @@
                 - インフルエンサーマーケティングは佐藤が担当、10名のリストを作成済み</p>
             </div>
         </div>
+        </div>
+        <div class="text-right pr-10 pb-5">
+            6
+        </div>
 </body>
 </html>
 
@@ -1648,6 +1416,264 @@ stability_text2image { "prompt": "生成したい画像の詳細な説明", "neg
                     </div>
                 </div>
             </div>
+            <div class="text-right pr-10 pb-5">
+                7
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dify - 生成AIアプリ開発プラットフォーム総合解説</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: #f0f4f8;
+        }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            margin: 0 auto;
+            background: white;
+            color: #333;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+        .header {
+            background: linear-gradient(90deg, #2563eb 0%, #3b82f6 100%);
+            padding: 1.25rem 3rem;
+            color: white;
+        }
+        .content {
+            flex: 1;
+            padding: 1.25rem 3rem;
+            position: relative;
+            z-index: 10;
+        }
+        .case-studies-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+        .case-study-card {
+            background-color: #f8fafc;
+            border-radius: 12px;
+            padding: 1.25rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        .case-study-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+        .case-study-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.75rem;
+        }
+        .company-logo {
+            width: 45px;
+            height: 45px;
+            background-color: #e5e7eb;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            margin-right: 0.9rem;
+            color: #3b82f6;
+        }
+        .company-name {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #2563eb;
+        }
+        .case-study-content {
+            flex: 1;
+            font-size: 0.9rem;
+        }
+        .result-box {
+            background-color: rgba(59, 130, 246, 0.05);
+            border-radius: 8px;
+            padding: 0.6rem;
+            margin-top: 0.75rem;
+            display: flex;
+            align-items: center;
+        }
+        .result-icon {
+            color: #2563eb;
+            font-size: 1.1rem;
+            margin-right: 0.6rem;
+        }
+        .industry-tag {
+            display: inline-block;
+            background-color: #dbeafe;
+            color: #2563eb;
+            padding: 0.25rem 0.6rem;
+            border-radius: 9999px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        .section-intro {
+            max-width: 800px;
+            margin: 0 auto 1rem auto;
+            text-align: center;
+            color: #4b5563;
+        }
+        .decorative-dots {
+            position: absolute;
+            bottom: 2rem;
+            left: 2rem;
+            width: 120px;
+            height: 120px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+            z-index: 1;
+            opacity: 0.1;
+        }
+        .dot {
+            width: 12px;
+            height: 12px;
+            background-color: #3b82f6;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="decorative-dots">
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+        </div>
+        
+        <div class="header">
+            <h1 class="text-3xl font-bold">Dify企業導入事例</h1>
+        </div>
+        <div class="section-intro">
+            <p class="text-lg"><br>実際のビジネス現場でDifyがどのように活用され、成果を上げているのかを見てみましょう。<br>様々な業界で導入され、その効率性と柔軟性が評価されています。</p>
+        </div>
+        <div class="content">
+            <div class="case-studies-grid">
+                <div class="case-study-card">
+                    <div class="case-study-header">
+                        <div class="company-logo">
+                            <i class="fas fa-utensils"></i>
+                        </div>
+                        <div>
+                            <div class="industry-tag">レストランレビュー</div>
+                            <h3 class="company-name">食べログ</h3>
+                        </div>
+                    </div>
+                    <div class="case-study-content">
+                        <p>AIを活用した記事作成支援システムを構築。食べログはDify Communityの立ち上げにも参画し、国内コミュニティの形成に貢献しています。社内でDifyを全社的に活用し、コンテンツ作成の効率化を実現しました。</p>
+                        <div class="result-box">
+                            <div class="result-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs font-medium text-gray-700">コンテンツ制作プロセスを効率化し、エディターの生産性を向上</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="case-study-card">
+                    <div class="case-study-header">
+                        <div class="company-logo">
+                            <i class="fas fa-plane"></i>
+                        </div>
+                        <div>
+                            <div class="industry-tag">旅行業</div>
+                            <h3 class="company-name">令和トラベル</h3>
+                        </div>
+                    </div>
+                    <div class="case-study-content">
+                        <p>旅行ガイド記事の制作にDifyを活用し、2ヶ月で400記事以上を作成。世界192カ国をカバーする旅行情報を提供できるようになり、NEWTアプリへの流入を増加させました。従来の方法では実現が困難だった規模の記事生成を実現。</p>
+                        <div class="result-box">
+                            <div class="result-icon">
+                                <i class="fas fa-percentage"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs font-medium text-gray-700">記事表示回数が90%増加し、アプリへの流入も大幅に向上</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="case-study-card">
+                    <div class="case-study-header">
+                        <div class="company-logo">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <div>
+                            <div class="industry-tag">自治体</div>
+                            <h3 class="company-name">東京都</h3>
+                        </div>
+                    </div>
+                    <div class="case-study-content">
+                        <p>東京都AI戦略会議にてDifyの活用を検討。機密性の高い情報を扱う際はLlama3などのローカルLLMと組み合わせることで、セキュリティを確保しつつAIアプリケーションを構築する計画。行政サービスの効率化とデジタル化を推進。</p>
+                        <div class="result-box">
+                            <div class="result-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs font-medium text-gray-700">機密性の高い行政データも安全に活用可能な環境を構築</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="case-study-card">
+                    <div class="case-study-header">
+                        <div class="company-logo">
+                            <i class="fas fa-print"></i>
+                        </div>
+                        <div>
+                            <div class="industry-tag">メーカー</div>
+                            <h3 class="company-name">リコー</h3>
+                        </div>
+                    </div>
+                    <div class="case-study-content">
+                        <p>リコーはLangGenius社と販売・構築パートナー契約を締結し、Difyのエンタープライズプラン販売を開始。社内でも実践的な取り組みを推進し、デジタルサービス事業の社員にDifyアカウントを配布。企業全体のデジタル変革を加速。</p>
+                        <div class="result-box">
+                            <div class="result-icon">
+                                <i class="fas fa-handshake"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs font-medium text-gray-700">社内実践による知見をもとに日本企業のAI活用を支援</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="text-right pr-10 pb-5">
+            8
         </div>
     </div>
 </body>
@@ -1903,8 +1929,12 @@ stability_text2image { "prompt": "生成したい画像の詳細な説明", "neg
                 </ul>
             </div>
             </div>
+            <div class="text-right pr-10 pb-5">
+                9
+            </div>
         </div>
     </div>
+
 </body>
 </html>
 
@@ -2226,6 +2256,9 @@ stability_text2image { "prompt": "生成したい画像の詳細な説明", "neg
             <span class="font-bold text-blue-600">選択のポイント：</span> 
             プログラミングスキルのないビジネスユーザーや迅速な開発が必要な場合はDify、高度なカスタマイズが必要な開発者はLangChain、シンプルな単一目的のチャットボットならGPTsが適しています。
         </p>
+    </div>
+    <div class="text-right pr-10 pb-5">
+        10
     </div>
     </div>
 </body>
