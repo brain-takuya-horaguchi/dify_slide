@@ -1,139 +1,29 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dify - 生成AIアプリ開発プラットフォーム総合解説</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css">
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Helvetica Neue', Arial, sans-serif;
-            background-color: #f0f4f8;
-        }
-        .slide-container {
-            width: 1280px;
-            min-height: 720px;
-            margin: 0 auto;
-            background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
-            color: white;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            position: relative;
-        }
-        .gradient-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at bottom right, rgba(255, 255, 255, 0.1) 0%, rgba(0, 0, 0, 0) 60%);
-        }
-        .title {
-            font-size: 4.5rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-        }
-        .subtitle {
-            font-size: 2rem;
-            font-weight: 400;
-            margin-bottom: 2rem;
-            opacity: 0.9;
-        }
-        .content-area {
-            z-index: 10;
-            padding: 0 10%;
-        }
-        .decorative-element {
-            position: absolute;
-            bottom: -100px;
-            left: -100px;
-            width: 500px;
-            height: 500px;
-            background-color: rgba(255, 255, 255, 0.05);
-            border-radius: 50%;
-            z-index: 1;
-        }
-        .decorative-element2 {
-            position: absolute;
-            top: -50px;
-            right: -50px;
-            width: 300px;
-            height: 300px;
-            background-color: rgba(255, 255, 255, 0.03);
-            border-radius: 50%;
-            z-index: 1;
-        }
-        .icon-grid {
-            display: flex;
-            justify-content: center;
-            margin-top: 2rem;
-            gap: 20px;
-        }
-        .icon-item {
-            display: flex;
-            align-items: center;
-            background-color: rgba(255, 255, 255, 0.1);
-            padding: 10px 15px;
-            border-radius: 8px;
-            margin: 5px;
-        }
-        .icon-item i {
-            margin-right: 8px;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <title>全画面画像 – `<img>` 方式</title>
+  <style>
+    /* 余白をなくし、ビューポートにフィットさせる */
+    html, body {
+      margin: 0;
+      height: 100%;
+    }
+
+    /* 画像を画面いっぱいに伸ばし、縦横比を維持しつつ切り抜き */
+    img.fullscreen {
+      width: 100vw;      /* ビューポート幅いっぱい */
+      height: 100vh;     /* ビューポート高いっぱい */
+      object-fit: cover;
+      object-position: center;
+      display: block;    /* 行間の余白対策 */
+    }
+  </style>
 </head>
 <body>
-    <div class="slide-container">
-        <div class="gradient-overlay"></div>
-        <div class="decorative-element"></div>
-        <div class="decorative-element2"></div>
-        
-        <div class="content-area text-center">
-            <h1 class="title">Dify</h1>
-            <h2 class="subtitle">生成AIアプリ開発プラットフォーム総合解説</h2>
-            
-            <p class="text-xl opacity-90 mb-6">
-                プログラミング不要で誰でも簡単に<br>
-                高度な生成AIアプリケーションを構築できる次世代ツール
-            </p>
-            
-            <div class="icon-grid flex flex-wrap justify-center">
-                <div class="icon-item">
-                    <i class="fas fa-robot text-xl"></i>
-                    <span>AIチャットボット</span>
-                </div>
-                <div class="icon-item">
-                    <i class="fas fa-cogs text-xl"></i>
-                    <span>AIエージェント</span>
-                </div>
-                <div class="icon-item">
-                    <i class="fas fa-project-diagram text-xl"></i>
-                    <span>AIワークフロー</span>
-                </div>
-                <div class="icon-item">
-                    <i class="fas fa-database text-xl"></i>
-                    <span>RAGエンジン</span>
-                </div>
-            </div>
-            
-            <p class="mt-10 text-sm opacity-70">
-                2025年最新版ガイド
-            </p>
-        </div>
-        <div class="text-right pr-10 pb-10">
-            1
-        </div>
-        </div>
+  <img src="images/image.png" alt="サンプル画像" class="fullscreen" />
 </body>
 </html>
-
 
 <!DOCTYPE html>
 <html lang="ja">
@@ -1197,267 +1087,6 @@
         }
         .content {
             flex: 1;
-            padding: 1rem 3rem;
-            position: relative;
-            z-index: 10;
-        }
-        .tutorial-steps {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1rem;
-            margin-top: 0.75rem;
-        }
-        .step-card {
-            background-color: #f8fafc;
-            border-radius: 12px;
-            padding: 1rem;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-        .step-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-        }
-        .step-number {
-            position: absolute;
-            top: -5px;
-            left: -5px;
-            width: 32px;
-            height: 32px;
-            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            font-size: 0.9rem;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-        .step-title {
-            font-size: 1rem;
-            font-weight: 700;
-            color: #2563eb;
-            margin-bottom: 0.4rem;
-            margin-left: 1.5rem;
-        }
-        .step-desc {
-            color: #4b5563;
-            font-size: 0.85rem;
-            margin-bottom: 0.6rem;
-        }
-        .step-tips {
-            background-color: rgba(59, 130, 246, 0.05);
-            border-left: 3px solid #3b82f6;
-            padding: 0.6rem;
-            border-radius: 0 8px 8px 0;
-            font-size: 0.8rem;
-            color: #4b5563;
-            margin-top: auto;
-        }
-        .preview-container {
-            margin-top: 1rem;
-            background-color: rgba(59, 130, 246, 0.05);
-            border-radius: 12px;
-            padding: 1rem;
-            display: flex;
-            justify-content: space-between;
-        }
-        .code-snippet {
-            background-color: #1e293b;
-            color: #e2e8f0;
-            border-radius: 8px;
-            padding: 0.75rem;
-            font-family: 'Courier New', monospace;
-            font-size: 0.75rem;
-            overflow: auto;
-            width: 55%;
-            height: 180px;
-        }
-        .image-preview-content {
-            width: 42%;
-            display: flex;
-            flex-direction: column;
-        }
-        .image-prompt {
-            background-color: white;
-            border: 1px solid #e5e7eb;
-            border-radius: 8px;
-            padding: 0.75rem;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-            font-size: 0.85rem;
-            margin-bottom: 0.75rem;
-        }
-        .image-preview {
-            display: flex;
-            justify-content: center;
-            flex-grow: 1;
-        }
-        .image-frame {
-            width: 180px;
-            height: 180px;
-            background-color: #f3f4f6;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            position: relative;
-            overflow: hidden;
-        }
-        .image-frame::after {
-            content: '生成画像が表示されます';
-            color: #9ca3af;
-            font-size: 0.8rem;
-            text-align: center;
-        }
-        .image-frame-icon {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            width: 26px;
-            height: 26px;
-            background-color: rgba(59, 130, 246, 0.1);
-            color: #3b82f6;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.9rem;
-        }
-        .section-title {
-            text-align: center;
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: #2563eb;
-            margin: 0.75rem 0 0.5rem 0;
-        }
-    </style>
-</head>
-<body>
-    <div class="slide-container">
-        <div class="header">
-            <h1 class="text-3xl font-bold">画像生成AIアプリケーション構築チュートリアル</h1>
-        </div>
-        <p class="text-lg mb-2"><br>　　　DifyでStable DiffusionやDALL-Eを活用した画像生成アプリケーションを簡単に構築する方法を紹介します。</p>            
-            
-                <div class="step-card">
-                    <div class="step-number  ml-5 mt-4">1</div>
-                    <h3 class="step-title">　APIキーの設定</h3>
-                    <p class="step-desc">画像生成モデルのAPIキーを取得します。Stability AIのサイトから登録してDreamStudioのAPIキーを発行するか、OpenAIのAPIキーを使用します。取得したキーをDifyの「ツール」設定でセットアップします。</p>
-                    <div class="step-tips">
-                        <strong>ポイント:</strong> Stability AIはオープンソースモデルでカスタマイズ性が高く、DALL-Eは簡単に利用開始できます。
-                    </div>
-                </div>
-                
-                <div class="step-card">
-                    <div class="step-number  ml-5 mt-4">2</div>
-                    <h3 class="step-title">　エージェントアプリの作成</h3>
-                    <p class="step-desc">「スタジオ」から「最初から作成」→「チャットフロー」を選択してアプリを作成します。画像生成と会話の両方ができるエージェントアプリが最適です。プロンプトの最適化のためLLMとの連携も設定します。</p>
-                    <div class="step-tips">
-                        <strong>ポイント:</strong> テンプレートから作成する場合は、「AI画像生成アシスタント」のテンプレートを活用すると効率的です。
-                    </div>
-                </div>
-                
-                <div class="step-card">
-                    <div class="step-number ml-5 mt-4">3</div>
-                    <h3 class="step-title">　ツール連携の設定</h3>
-                    <p class="step-desc">LLMブロックの設定でツール連携を行います。「stability_text2image」や「DALL-E」ツールを追加し、システムプロンプトに画像生成ツールの呼び出し方法を記述します。</p>
-                    <div class="step-tips">
-                        <strong>ポイント:</strong> 「ツールを使用する場合はMarkdown形式で表示する」と指示すると、出力が美しく整形されます。
-                    </div>
-                </div>
-                
-                <div class="step-card">
-                    <div class="step-number ml-5 mt-4">4</div>
-                    <h3 class="step-title">　デプロイと公開</h3>
-                    <p class="step-desc">設定が完了したらテストを行い、問題なければ「公開」ボタンからアプリをデプロイします。シングルページWebアプリとして公開したり、APIとして他のアプリケーションに組み込むことも可能です。</p>
-                    <div class="step-tips">
-                        <strong>ポイント:</strong> 公開前に様々なプロンプトでテストし、意図しない画像が生成されないようセーフガードを設けましょう。
-                    </div>
-                </div>
-            
-            <h3 class="section-title">プロンプト設定例</h3>
-            
-            <div class="preview-container">
-                <div class="code-snippet">
-                    <pre>あなたは画像生成のエキスパートです。ユーザーが画像生成を依頼したら、
-その内容を詳細に分析し、最適な画像生成プロンプトを作成してください。
-画像の生成には stability_text2image ツールを使用します。
-
-プロンプトを作成する際は、以下の点に注意してください：
-- 被写体の詳細な特徴を含める
-- 画像のスタイル（写真、イラスト、3Dレンダリングなど）を指定する
-- 色調や雰囲気も具体的に記述する
-- ネガティブプロンプトも適切に設定する
-
-画像生成には以下の形式でツールを呼び出してください：
-stability_text2image { "prompt": "生成したい画像の詳細な説明", "negative_prompt": "避けたい要素" }
-
-                </div>
-                
-                <div class="image-preview-content">
-                    <div class="image-prompt">
-                        <p class="font-medium text-gray-700 text-xs">ユーザー: <span class="text-gray-900">「夕暮れの桜並木を描いた美しい画像を作ってください」</span></p>
-                        <p class="font-medium text-gray-700 text-xs mt-1">アシスタント: <span class="text-gray-900">「夕暮れの桜並木の美しい画像を作成します。日本の春の風景ですね。何か特に希望するスタイルはありますか？」</span></p>
-                    </div>
-                    
-                    <div class="image-preview">
-                        <div class="image-frame">
-                            <div class="image-frame-icon">
-                                <i class="fas fa-image"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="text-right pr-10 pb-5">
-                7
-            </div>
-        </div>
-    </div>
-</body>
-</html>
-
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dify - 生成AIアプリ開発プラットフォーム総合解説</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css">
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Helvetica Neue', Arial, sans-serif;
-            background-color: #f0f4f8;
-        }
-        .slide-container {
-            width: 1280px;
-            min-height: 720px;
-            margin: 0 auto;
-            background: white;
-            color: #333;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            position: relative;
-            display: flex;
-            flex-direction: column;
-        }
-        .header {
-            background: linear-gradient(90deg, #2563eb 0%, #3b82f6 100%);
-            padding: 1.25rem 3rem;
-            color: white;
-        }
-        .content {
-            flex: 1;
             padding: 1.25rem 3rem;
             position: relative;
             z-index: 10;
@@ -2099,19 +1728,16 @@ stability_text2image { "prompt": "生成したい画像の詳細な説明", "neg
                         <td>ノーコード開発</td>
                         <td>
                             <div class="feature-available">
-                                <i class="fas fa-check-circle feature-icon"></i>
                                 完全対応
                             </div>
                         </td>
                         <td>
                             <div class="feature-unavailable">
-                                <i class="fas fa-times-circle feature-icon"></i>
                                 コード必須
                             </div>
                         </td>
                         <td>
                             <div class="feature-available">
-                                <i class="fas fa-check-circle feature-icon"></i>
                                 完全対応
                             </div>
                         </td>
@@ -2120,19 +1746,17 @@ stability_text2image { "prompt": "生成したい画像の詳細な説明", "neg
                         <td>複数AIモデル対応</td>
                         <td>
                             <div class="feature-available">
-                                <i class="fas fa-check-circle feature-icon"></i>
                                 数百のモデルに対応
                             </div>
                         </td>
                         <td>
                             <div class="feature-available">
-                                <i class="fas fa-check-circle feature-icon"></i>
                                 多数のモデルに対応
                             </div>
                         </td>
                         <td>
                             <div class="feature-limited">
-                                <i class="fas fa-exclamation-circle feature-icon"></i>
+                    
                                 OpenAIモデルのみ
                             </div>
                         </td>
@@ -2141,19 +1765,17 @@ stability_text2image { "prompt": "生成したい画像の詳細な説明", "neg
                         <td>RAG機能</td>
                         <td>
                             <div class="feature-available">
-                                <i class="fas fa-check-circle feature-icon"></i>
                                 組み込み済み
                             </div>
                         </td>
                         <td>
                             <div class="feature-available">
-                                <i class="fas fa-check-circle feature-icon"></i>
                                 実装可能
                             </div>
                         </td>
                         <td>
                             <div class="feature-limited">
-                                <i class="fas fa-exclamation-circle feature-icon"></i>
+                    
                                 ファイル添付のみ
                             </div>
                         </td>
@@ -2162,19 +1784,16 @@ stability_text2image { "prompt": "生成したい画像の詳細な説明", "neg
                         <td>複雑なワークフロー</td>
                         <td>
                             <div class="feature-available">
-                                <i class="fas fa-check-circle feature-icon"></i>
                                 視覚的設計可能
                             </div>
                         </td>
                         <td>
                             <div class="feature-available">
-                                <i class="fas fa-check-circle feature-icon"></i>
                                 コードで実装
                             </div>
                         </td>
                         <td>
                             <div class="feature-unavailable">
-                                <i class="fas fa-times-circle feature-icon"></i>
                                 非対応
                             </div>
                         </td>
@@ -2183,19 +1802,17 @@ stability_text2image { "prompt": "生成したい画像の詳細な説明", "neg
                         <td>画像生成連携</td>
                         <td>
                             <div class="feature-available">
-                                <i class="fas fa-check-circle feature-icon"></i>
                                 複数サービスと連携
                             </div>
                         </td>
                         <td>
                             <div class="feature-available">
-                                <i class="fas fa-check-circle feature-icon"></i>
                                 コードで実装可能
                             </div>
                         </td>
                         <td>
                             <div class="feature-limited">
-                                <i class="fas fa-exclamation-circle feature-icon"></i>
+                    
                                 DALL-Eのみ
                             </div>
                         </td>
@@ -2204,19 +1821,16 @@ stability_text2image { "prompt": "生成したい画像の詳細な説明", "neg
                         <td>オープンソース</td>
                         <td>
                             <div class="feature-available">
-                                <i class="fas fa-check-circle feature-icon"></i>
                                 完全対応
                             </div>
                         </td>
                         <td>
                             <div class="feature-available">
-                                <i class="fas fa-check-circle feature-icon"></i>
                                 完全対応
                             </div>
                         </td>
                         <td>
                             <div class="feature-unavailable">
-                                <i class="fas fa-times-circle feature-icon"></i>
                                 クローズド
                             </div>
                         </td>
